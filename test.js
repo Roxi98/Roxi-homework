@@ -16,14 +16,6 @@ kocka8 = Array.from({ length: N1 }, (_, index) => index + 1);
 const N2 = 10;
 kocka10 = Array.from({ length: N2 }, (_, index) => index + 1);
 let osszkockak = [kocka20, kocka8, kocka10, kocka20];
-function vegtelen(mau) {
-  let kockaoldalak = [];
-  for (let i = 0; i < osszkockak.length; i++) {
-    return kockaoldalak.push(osszkockak.length);
-  }
-  console.log(kockaoldalak);
-}
-console.log(vegtelen(osszkockak));
 
 function osszkocka(allDice) {
   for (let i = 0; i < allDice.length; i++) {
@@ -32,4 +24,10 @@ function osszkocka(allDice) {
   }
 }
 console.log(osszkocka(osszkockak));
-function Roll(mindenkocka) {}
+function Roll(vegtelenkocka) {
+  return randomIntBetweenTwoNumbers(
+    allDice[i][0],
+    allDice[i][allDice.lenght - 1]
+  );
+}
+console.log(Roll([kocka]));
