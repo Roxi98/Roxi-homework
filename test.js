@@ -11,7 +11,7 @@ function randomIntBetweenTwoNumbers(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
-const N = 20;
+const N = 50;
 kocka20 = Array.from({ length: N }, (_, index) => index + 1);
 const N1 = 8;
 kocka8 = Array.from({ length: N1 }, (_, index) => index + 1);
@@ -23,13 +23,8 @@ function Roll(dice) {
   for (let i = 0; i < dice.length; i++) {
     const kockaszam = [];
     kockaszam.push(randomIntBetweenTwoNumbers(0, dice[i].length - 1));
-    //console.log("kockaszam", kockaszam);
-    //console.log(dice[i][kockaszam]);
-    //if (typeof dice[i][kockaszam] === "string") {
-    //  mau.push(dice[i][kockaszam]);
-    //} else {
-    //  mau.push(dice[i][kockaszam]);
-    // }
+
+    mau.push(dice[i][kockaszam]);
   }
   return mau;
 }
