@@ -3,6 +3,7 @@ const idemoLista = [
   [1, 888, 434, 21312],
   [1, 324, 277, 563],
   [555, 666, 777, 667],
+  [1, 2, 3, 4, 5, 6, 7, 8, 9, 500000],
 ];
 function biggest(number) {
   console.log(number);
