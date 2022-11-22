@@ -23,13 +23,13 @@ function Roll(dice) {
   for (let i = 0; i < dice.length; i++) {
     const kockaszam = [];
     kockaszam.push(randomIntBetweenTwoNumbers(0, dice[i].length - 1));
-    console.log("kockaszam", kockaszam);
-    console.log(dice[i][kockaszam]);
-    if (typeof dice[i][kockaszam] === "string") {
-      mau.push(dice[i][kockaszam]);
-    } else {
-      mau.push(dice[i][kockaszam]);
-    }
+    //console.log("kockaszam", kockaszam);
+    //console.log(dice[i][kockaszam]);
+    //if (typeof dice[i][kockaszam] === "string") {
+    //  mau.push(dice[i][kockaszam]);
+    //} else {
+    //  mau.push(dice[i][kockaszam]);
+    // }
   }
   return mau;
 }
