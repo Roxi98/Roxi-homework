@@ -2,8 +2,9 @@ const kocka = [1, 2, 3, 4, 5, 6];
 let kocka20 = [];
 let kocka8 = [];
 let kocka10 = [];
+let kocka7 = [55, 77, 88, 99];
 let kockaString = ["Boris", "Jimmy", "Roxi", "lol", "gugya", "szilya"];
-console.log(kockaString);
+//console.log(kockaString);
 
 function randomIntBetweenTwoNumbers(min, max) {
   min = Math.ceil(min);
@@ -26,7 +27,8 @@ function Roll(dice) {
 
     mau.push(dice[i][kockaszam]);
   }
+  1;
   return mau;
 }
 
-console.log(Roll([kocka20, kocka8, kocka10, kockaString]));
+console.log(Roll([kocka20, kocka8, kocka10, kockaString, kocka7, kocka7]));
