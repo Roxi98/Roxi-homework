@@ -38,12 +38,17 @@ function introQuestion(end) {
         for (let i = 0; i < winCondition.length; i++) {
           let array = winCondition[i];
 
-          let xCount = array.filter((element) => element === "X").length;
+          let xCount = array.filter((element1) => element1 === "X").length;
           if (xCount === 3) {
             console.log("You Win!");
-          }
+            resolve(true);
 
-          resolve(true);
+            let oCount = array.filter((element2) => element2 === "0").length;
+            if (oCount === 3) {
+              console.log("You Loose NAB!");
+              resolve(true);
+            }
+          }
         }
       }
 
@@ -66,14 +71,18 @@ const turnQuestion = (end) => {
         );
       }
       let computerAnswer = 0;
+      let done = false;
+      do {
+        computerAnswer = randomIntBetweenTwoNumbers(0, 8);
 
-      computerAnswer = randomIntBetweenTwoNumbers(0, 8);
-
-      while (
-        emptySquares[computerAnswer] !== "0" &&
-        emptySquares[computerAnswer] !== "X"
-      )
-        emptySquares[computerAnswer] = "0";
+        if (
+          emptySquares[computerAnswer] !== "0" &&
+          emptySquares[computerAnswer] !== "X"
+        ) {
+          done = true;
+          emptySquares[computerAnswer] = "0";
+        }
+      } while (done === false);
 
       console.log(getTable(emptySquares));
       const winCondition = [
@@ -94,8 +103,12 @@ const turnQuestion = (end) => {
           console.log("You Win!");
           resolve(true);
         }
+        let oCount = array.filter((element2) => element2 === "0").length;
+        if (oCount === 3) {
+          console.log("You Loose NAB!");
+          resolve(true);
+        }
       }
-
       resolve(false);
     });
   });

@@ -38,8 +38,9 @@ const turnQuestion = (end) => {
           "The square you choose is already taken.Please pick another square"
         );
       }
-
+      resolve(false);
       if (
+        emptySquares[0] === "X" &&
         emptySquares[0] === emptySquares[1] &&
         emptySquares[1] === emptySquares[2]
       ) {
@@ -95,7 +96,6 @@ const turnQuestion = (end) => {
         console.log("You Win");
         resolve(true);
       }
-      resolve(false);
     });
   });
 };
@@ -116,7 +116,9 @@ const turnQuestion2 = (end) => {
         }
       } while (done === false);
       console.log(getTable(emptySquares));
+      resolve(false);
       if (
+        emptySquares[0] === "0" &&
         emptySquares[0] === emptySquares[1] &&
         emptySquares[1] === emptySquares[2]
       ) {
@@ -172,7 +174,6 @@ const turnQuestion2 = (end) => {
         console.log("You Loose");
         resolve(true);
       }
-      resolve(false);
     });
   });
 };
@@ -180,24 +181,42 @@ async function game() {
   await introQuestion();
   if (faszom === "yes") {
     await turnQuestion();
+    console.log(getTable(emptySquares));
     await turnQuestion2();
+    console.log(getTable(emptySquares));
     await turnQuestion();
+    console.log(getTable(emptySquares));
     await turnQuestion2();
+    console.log(getTable(emptySquares));
     await turnQuestion();
+    console.log(getTable(emptySquares));
     await turnQuestion2();
+    console.log(getTable(emptySquares));
     await turnQuestion();
+    console.log(getTable(emptySquares));
     await turnQuestion2();
+    console.log(getTable(emptySquares));
     await turnQuestion();
+    console.log(getTable(emptySquares));
   } else if (faszom === "no") {
     await turnQuestion2();
+    console.log(getTable(emptySquares));
     await turnQuestion();
+    console.log(getTable(emptySquares));
     await turnQuestion2();
+    console.log(getTable(emptySquares));
     await turnQuestion();
+    console.log(getTable(emptySquares));
     await turnQuestion2();
+    console.log(getTable(emptySquares));
     await turnQuestion();
+    console.log(getTable(emptySquares));
     await turnQuestion2();
+    console.log(getTable(emptySquares));
     await turnQuestion();
+    console.log(getTable(emptySquares));
     await turnQuestion2();
+    console.log(getTable(emptySquares));
   }
 
   rl.close();
