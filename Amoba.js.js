@@ -70,8 +70,11 @@ const turnQuestion = (end) => {
           "The square you choose is already taken.Please pick another square"
         );
       }
+
       let computerAnswer = 0;
+
       let done = false;
+
       do {
         computerAnswer = randomIntBetweenTwoNumbers(0, 8);
 
@@ -89,25 +92,35 @@ const turnQuestion = (end) => {
         [emptySquares[0], emptySquares[1], emptySquares[2]],
         [emptySquares[3], emptySquares[4], emptySquares[5]],
         [emptySquares[6], emptySquares[7], emptySquares[8]],
-        [emptySquares[0], emptySquares[5], emptySquares[8]],
+        [emptySquares[0], emptySquares[3], emptySquares[6]],
         [emptySquares[1], emptySquares[6], emptySquares[7]],
         [emptySquares[2], emptySquares[5], emptySquares[8]],
         [emptySquares[0], emptySquares[4], emptySquares[8]],
         [emptySquares[2], emptySquares[4], emptySquares[6]],
       ];
+      let winner = "";
       for (let i = 0; i < winCondition.length; i++) {
         let array = winCondition[i];
+        let oCount = array.filter((element2) => element2 === "0").length;
+        if (oCount === 3) {
+          winner = 1;
+        }
 
         let xCount = array.filter((element) => element === "X").length;
         if (xCount === 3) {
+          winner = 0;
+        }
+      }
+      switch (winner) {
+        case 0:
           console.log("You Win!");
           resolve(true);
-        }
-        let oCount = array.filter((element2) => element2 === "0").length;
-        if (oCount === 3) {
+          break;
+
+        case 1:
           console.log("You Loose NAB!");
           resolve(true);
-        }
+          break;
       }
       resolve(false);
     });
